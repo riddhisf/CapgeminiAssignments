@@ -29,25 +29,20 @@ public class BubbleSort {
 	public static void compBubbleSort(Student [] arr) {
 		for(int i=0;i<arr.length;i++) {
 			for(int j=0;j<arr.length-i-1;j++) {
-				if(arr[j].getJavaMarks()<arr[j+1].getJavaMarks()) {
-					Student temp=arr[j];
-					arr[j]=arr[j+1];
-					arr[j+1]=temp;
-				}
-				else if(arr[j].getJavaMarks()==arr[j+1].getJavaMarks()) {
-					if(arr[j].getFsMarks()<arr[j+1].getFsMarks()) {
-						Student temp=arr[j];
-						arr[j]=arr[j+1];
-						arr[j+1]=temp;
-					}
-					else if(arr[j].getFsMarks()==arr[j+1].getFsMarks()) {
-						if(arr[j].getCMarks()<arr[j+1].getCMarks()) {
-							Student temp=arr[j];
-							arr[j]=arr[j+1];
-							arr[j+1]=temp;
-						}
-					}
-				}
+				if (
+				        arr[j].getJavaMarks() < arr[j + 1].getJavaMarks() ||
+
+				        (arr[j].getJavaMarks() == arr[j + 1].getJavaMarks() &&
+				         arr[j].getFsMarks() < arr[j + 1].getFsMarks()) ||
+
+				        (arr[j].getJavaMarks() == arr[j + 1].getJavaMarks() &&
+				         arr[j].getFsMarks() == arr[j + 1].getFsMarks() &&
+				         arr[j].getCMarks() < arr[j + 1].getCMarks())
+				    ) {
+				        Student temp = arr[j];
+				        arr[j] = arr[j + 1];
+				        arr[j + 1] = temp;
+				  }
 			}
 		}
 	}
@@ -136,4 +131,5 @@ class Student {
 				+ ", id=" + id + "]";
 	}
 }
+
 
