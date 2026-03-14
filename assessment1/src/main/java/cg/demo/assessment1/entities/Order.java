@@ -59,6 +59,7 @@ public class Order {
         return "Order [orderId=" + orderId +
                 ", orderDate=" + orderDate +
                 ", orderAmt=" + orderAmt +
-                ", customer=" + customer.getCustomerName() + "]";
+                ", customerName=" + customer.getCustomerName() +
+                ", customerId=" + customer.getCustomerId() + "]";
     }
 }
